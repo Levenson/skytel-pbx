@@ -7,7 +7,7 @@ DISTFILES=
 
 MAINTAINER=Aleksey Abramov
 
-LIB_DEPENDS=spandsp-devel:${PORTSDIR}/comms/spandsp-devel \
+RUN_DEPENDS=spandsp-devel:${PORTSDIR}/comms/spandsp-devel \
 	    libxml2:${PORTSDIR}/textproc/libxml2 \
 	    sqlite3p:${PORTSDIR}/databases/sqlite3 \
 	    lame:${PORTSDIR}/audio/lame \
