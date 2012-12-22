@@ -1,4 +1,23 @@
 skytel_pbx
 ==========
 
-Skytel Corporation Asterisk PBX installer.
+xmlrpc-handlers - Provide rpc requests to the station. Its a front end
+of the Station throught you can send commands and monitoring
+events. It should be started with limited user rights.
+
+validator - List of check- functions for easy argument validation that sends to xmlrpc-handlers, and tasks by taskmanager.
+
+taskmanager - back end system with root-like rights which will do
+tasks builded by xmlrpc-handler.
+
+Schema is look something like this:
+
+System starts with hunchentoot ( lisp web-server ) daemon and enables
+xmlrpc-handlers. Daemon runs by htoot user and it have no right to
+harm you system. When request comes, xmlrpc-handler will check
+received arguments through the validator, build a task and save it for
+the taskmanager.
+
+Taskmanager is a lisp script which starts every N minutes by cron
+system. It reads tasks, again check arguments by validator and perfome
+the actions. 
