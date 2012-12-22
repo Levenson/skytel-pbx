@@ -13,5 +13,5 @@
   :version "0.1"
   :depends-on (:log4cl :split-sequence :iolib :hunchentoot :cxml-rpc)
   :pathname "xmlrpc-handlers/"
-  :components ((:file "skt-noname")))
+  :components ((:file "xmlrpc-handlers")))
 
