@@ -1,14 +1,20 @@
-skytel_pbx
-==========
+* skytel-pbx
 
-xmlrpc-handlers - Provide rpc requests to the station. Its a front end
-of the Station throught you can send commands and monitoring
-events. It should be started with limited user rights.
+** xmlrpc-handlers
+Provide rpc requests to the station. Its a front end of the Station
+throught you can send commands and monitoring events. It should be
+started with limited user rights.
 
-validator - List of check- functions for easy argument validation that sends to xmlrpc-handlers, and tasks by taskmanager.
+** validator
+List of check- functions for easy argument validation that sends to
+xmlrpc-handlers, and tasks by taskmanager.
 
-taskmanager - back end system with root-like rights which will do
-tasks builded by xmlrpc-handler.
+** taskmanager
+Back end system with root-like rights which will do tasks builded by
+xmlrpc-handler.
+
+
+* How it works
 
 Schema is look something like this:
 
