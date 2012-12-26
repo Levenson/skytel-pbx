@@ -5,16 +5,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main Method
 
-(defparameter *jail-name* nil)
-(defparameter *jail-ip-address* nil)
-
 (defun jail-build (jail-name jail-ip-address &optional &key (test t))
   "Build a free jail on ZFS system of FreeBSD host system, based on
 /Zjails/template. All data from template compies by cpdup utilities,
 and then process rc.conf, /etc/hosts /etc/pf.conf and files of jail:
 /etc/hosts /usr/local/"
   (log:debug "ARGS: ~S ~S" jail-name jail-ip-address)
-  (run-program "/root/bin/build-jail" (strcat jail-name " " jail-ip-address))
+  (run-program "/root/bin/build-jail" (strcat jail-name " " jail-ip-address :test nil))
   ;; (build-zfs-filesystem jail-name :test test)
   ;; (cpdup "/Zjails/template" (strcat "/Zjails/" jail-name) :test test)
   ;; (build sip-file )
@@ -23,6 +20,7 @@ and then process rc.conf, /etc/hosts /etc/pf.conf and files of jail:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun run-program (program args &optional &key (test t))
+  (log:debug "~S ~S" program args)
   (when (not test)
     (let ((proc (sb-ext:run-program program
                                     (split-sequence:split-sequence #\Space args)
